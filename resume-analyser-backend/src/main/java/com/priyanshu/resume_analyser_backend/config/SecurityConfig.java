@@ -36,7 +36,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/users/register",
-                                "/api/users/login"
+                                "/api/users/login",
+                                "/api/test/**",
+                                "/error"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
@@ -49,21 +51,16 @@ public class SecurityConfig {
     }
 
     /**
-     * Allow requests from the Vite dev server (port 5173) and
-     * any production origin you deploy to.
+     * Permissive CORS configuration supporting Vercel, localhost, and custom domains.
      */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // Allowed origins — add your production URL here when deploying
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5173",
-                "http://127.0.0.1:5173"
-        ));
-
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.addAllowedOriginPattern("*");
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "PATCH"));
         config.setAllowedHeaders(List.of("*"));
+        config.setExposedHeaders(List.of("Authorization", "Content-Disposition"));
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);
 
