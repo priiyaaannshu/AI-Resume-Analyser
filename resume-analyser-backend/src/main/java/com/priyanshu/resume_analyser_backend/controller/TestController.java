@@ -10,4 +10,8 @@ public class TestController {
     public String test() {
         return "Resume Analyser Backend is Running 🚀";
     }
+    @GetMapping("/hello")
+    public String hello() {
+        return "JWT Authentication Working!";
+    }
 }

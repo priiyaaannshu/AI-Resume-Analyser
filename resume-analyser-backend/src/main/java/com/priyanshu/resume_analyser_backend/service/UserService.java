@@ -8,11 +8,11 @@ import com.priyanshu.resume_analyser_backend.dto.LoginRequest;
 import java.util.Optional;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.priyanshu.resume_analyser_backend.dto.AuthResponse;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 public class UserService {
-    private final BCryptPasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     private final UserRepository userRepository;
 
@@ -20,7 +20,7 @@ public class UserService {
 
 
     public UserService(UserRepository userRepository,
-                       BCryptPasswordEncoder passwordEncoder,
+                       PasswordEncoder passwordEncoder,
                        JwtService jwtService) {
 
         this.userRepository = userRepository;
