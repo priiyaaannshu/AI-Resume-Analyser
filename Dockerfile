@@ -13,4 +13,4 @@ COPY --from=build /app/target/*.jar app.jar
 RUN mkdir -p uploads
 EXPOSE 8081
 ENV PORT=8081
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Dserver.port=${PORT:-8081} -jar app.jar"]
