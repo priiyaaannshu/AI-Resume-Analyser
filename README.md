@@ -1,18 +1,32 @@
-# 🚀 AI Resume Analyser - Backend
+# 🚀 AI Resume Analyser (Full Stack Monorepo)
 
-Spring Boot 3.5 REST API backend for the **AI Resume Analyser (Resumix)** platform. Analyzes PDF resumes using **Google Gemini AI**, extracts text via Apache PDFBox, provides ATS compatibility scores, strengths, weaknesses, missing skills, and stores user profiles and resumes in MySQL with JWT-secured authentication.
+The **AI Resume Analyser (Resumix)** is a full-stack platform that analyzes PDF resumes using **Google Gemini AI**. It extracts text, provides ATS compatibility scores, strengths, weaknesses, missing skills, and manages user profiles.
+
+This repository contains both the **Frontend** (React + Vite) and the **Backend** (Spring Boot 3.5 REST API).
+
+---
+
+## 📁 Repository Structure
+
+* `frontend/` - React 19, Vite, Tailwind CSS, Framer Motion
+* `resume-analyser-backend/` - Spring Boot 3.5.6, Java 21, MySQL, JWT, Gemini API
+* `Dockerfile` - Multi-stage production build for the backend
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Java 21**
-* **Spring Boot 3.5.6** (Spring Web, Spring Security, Spring Data JPA)
+### Frontend
+* **React 19 & Vite**
+* **Tailwind CSS & Framer Motion** (for styling and animations)
+* **Axios & React Router**
+
+### Backend
+* **Java 21 & Spring Boot 3.5.6**
 * **MySQL Database** with Hibernate ORM
-* **Google Gemini API** (Generative AI for ATS scoring & feedback)
-* **Apache PDFBox 3.0.3** (PDF text extraction)
-* **JWT (JSON Web Token)** with `jjwt 0.12.7`
-* **Docker** (Multi-stage production build for Render/Railway deployment)
+* **Google Gemini AI API** for intelligent ATS scoring
+* **Apache PDFBox** for robust PDF text extraction
+* **JWT** for secure authentication
 
 ---
 
@@ -49,6 +63,7 @@ The application can be configured via environment variables or `application.prop
 
 ## 🚀 Running Locally
 
+### 1. Start the Backend
 ```bash
 # Clone the repository
 git clone https://github.com/priiyaaannshu/AI-Resume-Analyser.git
@@ -57,5 +72,17 @@ cd AI-Resume-Analyser/resume-analyser-backend
 # Run with Maven Wrapper
 ./mvnw spring-boot:run
 ```
-
 The backend will start at: `http://localhost:8081`
+
+### 2. Start the Frontend
+Open a new terminal window:
+```bash
+cd AI-Resume-Analyser/frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+The frontend will start at: `http://localhost:5173`
