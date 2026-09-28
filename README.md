@@ -54,7 +54,7 @@ The application can be configured via environment variables or `application.prop
 | `PORT` | `8081` | Server port |
 | `SPRING_DATASOURCE_URL` | `jdbc:mysql://localhost:3306/resume_analyser` | Database connection URL |
 | `SPRING_DATASOURCE_USERNAME` | `root` | Database username |
-| `SPRING_DATASOURCE_PASSWORD` | `Priyanshu@1437` | Database password |
+| `SPRING_DATASOURCE_PASSWORD` | `YOURPASSWORD` | Database password |
 | `GEMINI_API_KEY` | *(Set your key)* | Google Gemini API Key |
 | `JWT_SECRET` | *(Default secret)* | Secret key for signing JWT tokens |
 | `FILE_UPLOAD_DIR` | `uploads` | Local upload directory for PDF files |
